@@ -100,24 +100,65 @@
 
     <section class="final-screen" id="finalScreen" hidden aria-labelledby="finalTitle">
       <div class="final-card">
-        <div class="final-badge" aria-hidden="true">★</div>
-        <p class="eyebrow">MISSION ACCOMPLIE</p>
-        <h1 id="finalTitle">Le dossier est sauvé !</h1>
-        <p class="final-intro">Bravo, agent. Tu sais maintenant ranger, déplacer et récupérer des fichiers sans paniquer.</p>
-        <div class="final-score"><span id="finalScore">0</span><small>POINTS</small></div>
-        <div class="star-row" id="starRow" aria-label="Étoiles obtenues"></div>
-        <h2>Compétences acquises</h2>
-        <ul class="skills-list">
-          <li>✓ Choisir entre copier, couper et coller</li>
-          <li>✓ Utiliser Ctrl+C, Ctrl+X, Ctrl+V et Suppr</li>
-          <li>✓ Ranger dans P: › Documents › TICE</li>
-          <li>✓ Renommer clairement un fichier</li>
-          <li>✓ Supprimer puis restaurer depuis la corbeille</li>
-        </ul>
-        <div class="badges" id="badges"></div>
+        <header class="final-heading">
+          <div class="final-badge" aria-hidden="true">📁</div>
+          <div>
+            <p class="eyebrow">MISSION ACCOMPLIE · SÉANCE 04</p>
+            <h1 id="finalTitle">Le dossier est sauvé !</h1>
+            <p class="final-intro">Bravo, agent. Tu sais maintenant ranger, déplacer et récupérer des fichiers sans rien perdre.</p>
+          </div>
+        </header>
+
+        <section class="student-info" aria-label="Identification de l’élève">
+          <label>Nom et prénom<input id="studentName" type="text" autocomplete="name" placeholder="À compléter"></label>
+          <label>Classe<input id="studentClass" type="text" placeholder="6e …"></label>
+          <label>Date<input id="studentDate" type="text" placeholder="jj/mm/aaaa"></label>
+        </section>
+
+        <section class="final-summary" aria-label="Résultat de la mission">
+          <div class="final-score-card">
+            <p class="mini-label violet">SCORE DE MISSION</p>
+            <div class="final-score"><span id="finalScore">0</span><small>/ <span id="finalScoreMax">870</span> POINTS</small></div>
+            <div class="star-row" id="starRow" aria-label="Étoiles obtenues"></div>
+          </div>
+          <div class="level-card">
+            <p class="mini-label ochre">NIVEAU OBTENU</p>
+            <strong id="finalLevel">Agent confirmé</strong>
+            <p id="finalLevelText">Tu maîtrises les gestes essentiels du rangement numérique.</p>
+          </div>
+        </section>
+
+        <div class="badges" id="badges" aria-label="Badges obtenus"></div>
+
+        <section class="result-section challenge-results-section">
+          <p class="mini-label violet">DÉTAIL DE LA MISSION</p>
+          <h2>Mes huit défis</h2>
+          <div class="challenge-results" id="challengeResults"></div>
+        </section>
+
+        <section class="result-section skills-section">
+          <p class="mini-label ochre">COMPÉTENCES ACQUISES</p>
+          <h2>Je sais maintenant…</h2>
+          <ul class="skills-list">
+            <li><span>✓</span>Différencier copier, couper et coller</li>
+            <li><span>✓</span>Utiliser Ctrl+C, Ctrl+X, Ctrl+V et Suppr</li>
+            <li><span>✓</span>Choisir le bon dossier de destination</li>
+            <li><span>✓</span>Déplacer un fichier sans créer de copie</li>
+            <li><span>✓</span>Ranger dans P: › Documents › TICE</li>
+            <li><span>✓</span>Donner un nom clair à un fichier</li>
+            <li><span>✓</span>Supprimer puis restaurer depuis la corbeille</li>
+            <li><span>✓</span>Enchaîner plusieurs actions de rangement</li>
+          </ul>
+        </section>
+
+        <section class="final-note">
+          <div class="agent-advice"><p class="mini-label violet">CONSEIL DE PIXEL</p><p id="finalAdvice">Avant de déplacer un fichier, vérifie son nom et le dossier ouvert.</p></div>
+          <div class="teacher-note"><strong>Observation / validation du professeur</strong><span></span><span></span></div>
+        </section>
+
         <div class="final-actions">
-          <button class="primary-button" id="replayButton" type="button">Rejouer la mission ↻</button>
-          <button class="ghost-button" id="printButton" type="button">Imprimer le bilan</button>
+          <button class="primary-button" id="printButton" type="button">Imprimer mon bilan</button>
+          <button class="ghost-button" id="replayButton" type="button">Rejouer la mission ↻</button>
         </div>
       </div>
     </section>

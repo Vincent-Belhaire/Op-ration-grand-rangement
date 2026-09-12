@@ -12,6 +12,7 @@ const feedbackText = $("#feedbackText");
 const nextButton = $("#nextButton");
 const helpModal = $("#helpModal");
 const helpContent = $("#helpContent");
+const MAX_SCORE = 870;
 
 const challenges = [
   {
@@ -84,6 +85,7 @@ const state = {
   index: 0,
   score: 0,
   completed: new Set(),
+  challengeScores: new Map(),
   badges: new Set(),
   timer: null,
   timerLeft: 45,
@@ -130,6 +132,7 @@ function completeChallenge(points = 100, badge) {
   if (state.completed.has(state.index)) return;
   state.completed.add(state.index);
   state.score += points;
+  state.challengeScores.set(state.index, points);
   if (badge) state.badges.add(badge);
   $("#scoreValue").textContent = state.score;
   nextButton.disabled = false;
@@ -571,8 +574,42 @@ function showFinal() {
   stopTimer();
   showScreen("final");
   $("#finalScore").textContent = state.score;
-  const stars = state.score >= 820 ? 3 : state.score >= 700 ? 2 : 1;
+  $("#finalScoreMax").textContent = MAX_SCORE;
+  const stars = state.score >= 850 ? 3 : state.score >= 800 ? 2 : 1;
   $("#starRow").textContent = "★".repeat(stars) + "☆".repeat(3 - stars);
+  $("#starRow").setAttribute("aria-label", `${stars} étoile${stars > 1 ? "s" : ""} sur 3`);
+
+  let level = "Mission réussie";
+  let levelText = "Tu maîtrises les gestes essentiels du rangement numérique.";
+  let advice = "Continue à vérifier le nom du fichier et le dossier ouvert avant chaque action.";
+  if (state.score >= 860) {
+    level = "Expert du rangement";
+    levelText = "Tu ranges avec précision, rapidité et autonomie.";
+    advice = "Excellent travail : conserve ces bonnes habitudes dans toutes les matières.";
+  } else if (state.score >= 840) {
+    level = "Agent confirmé";
+    levelText = "Tu maîtrises les gestes et tu sais organiser un dossier complexe.";
+    advice = "Pour progresser encore, entraîne-toi à utiliser les raccourcis sans regarder le clavier.";
+  }
+  $("#finalLevel").textContent = level;
+  $("#finalLevelText").textContent = levelText;
+  $("#finalAdvice").textContent = advice;
+  $("#studentDate").value = new Date().toLocaleDateString("fr-FR");
+
+  const report = [
+    { title: "Les bons gestes", skill: "Copier, couper ou coller", max: 100 },
+    { title: "Raccourcis éclair", skill: "Ctrl+C, Ctrl+X, Ctrl+V, Suppr", max: 100 },
+    { title: "Le grand tri", skill: "Classer dans le bon dossier", max: 100 },
+    { title: "Zéro copie en trop", skill: "Déplacer sans dupliquer", max: 100 },
+    { title: "Noms de fichiers", skill: "Renommer clairement", max: 100 },
+    { title: "Restauration d’urgence", skill: "Supprimer et restaurer", max: 100 },
+    { title: "Dossier catastrophe", skill: "Enchaîner plusieurs actions", max: 125 },
+    { title: "Rangement express", skill: "Classer rapidement", max: 145 }
+  ];
+  $("#challengeResults").innerHTML = report.map((item, index) => {
+    const points = state.challengeScores.get(index) || 0;
+    return `<article class="challenge-result"><span class="result-number">${String(index + 1).padStart(2, "0")}</span><div><strong>${item.title}</strong><small>${item.skill}</small></div><span class="result-status">✓ Validé</span><b>${points} / ${item.max}</b></article>`;
+  }).join("");
   $("#badges").innerHTML = [...state.badges].map(badge => `<span class="badge">🏅 ${badge}</span>`).join("");
 }
 
@@ -581,6 +618,7 @@ function resetMission() {
   state.index = 0;
   state.score = 0;
   state.completed.clear();
+  state.challengeScores.clear();
   state.badges.clear();
   state.challengeData = {};
   startMission();

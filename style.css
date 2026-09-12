@@ -476,21 +476,49 @@ kbd { min-width: 48px; padding: 10px 13px; border: 2px solid var(--navy); border
 .speed-folder:hover { border-color: var(--teal); }
 .speed-arrow { font-size: 2rem; color: var(--ink-soft); }
 
-.final-screen { padding: 62px 0 82px; }
-.final-card { max-width: 800px; margin: auto; padding: clamp(28px, 6vw, 58px); text-align: center; }
-.final-badge { width: 92px; height: 92px; margin: -8px auto 22px; display: grid; place-items: center; border-radius: 28px; background: var(--yellow); border: 3px solid var(--navy); box-shadow: 6px 7px 0 var(--navy); font-size: 3rem; transform: rotate(-4deg); }
-.final-card h1 { font-size: clamp(2.4rem, 6vw, 4rem); }
-.final-intro { max-width: 590px; margin: 20px auto; color: var(--ink-soft); font-style: italic; }
-.final-score { margin: 24px auto; display: grid; }
-.final-score span { font-size: 4.7rem; line-height: 1; font-weight: 900; color: var(--violet); }
-.final-score small { font-weight: 900; letter-spacing: .16em; }
-.star-row { min-height: 45px; color: var(--yellow); font-size: 2.2rem; letter-spacing: .1em; text-shadow: 1px 2px 0 var(--navy); }
-.final-card h2 { margin-top: 30px; }
-.skills-list { max-width: 570px; margin: 0 auto 25px; padding: 0; display: grid; gap: 9px; list-style: none; text-align: left; }
-.skills-list li { padding: 11px 14px; border-radius: 10px; background: var(--soft); }
-.badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: 22px 0; }
-.badge { padding: 8px 12px; border-radius: 999px; background: #e9e5ff; color: #5043a2; font-weight: 900; font-size: .82rem; }
-.final-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 18px; margin-top: 30px; }
+.final-screen { padding: 48px 0 82px; }
+.final-card { max-width: 980px; margin: auto; padding: clamp(26px, 5vw, 48px); text-align: left; }
+.final-heading { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 28px; }
+.final-badge { width: 92px; height: 92px; display: grid; place-items: center; border-radius: 28px; background: var(--yellow); border: 3px solid var(--navy); box-shadow: 6px 7px 0 var(--navy); font-size: 2.7rem; transform: rotate(-4deg); }
+.final-card h1 { font-size: clamp(2.4rem, 5.4vw, 4rem); }
+.final-intro { max-width: 680px; margin: 13px 0 0; color: var(--ink-soft); font-style: italic; }
+.student-info { margin: 30px 0 22px; padding: 16px 18px; display: grid; grid-template-columns: 2fr .8fr 1fr; gap: 16px; border: 2px solid var(--navy); border-radius: 15px; background: var(--soft); }
+.student-info label { display: grid; gap: 4px; font-size: .78rem; font-weight: 900; letter-spacing: .05em; text-transform: uppercase; }
+.student-info input { min-width: 0; padding: 6px 2px; border: 0; border-bottom: 2px solid #a9a3b7; background: transparent; color: var(--navy); font-weight: 700; text-transform: none; }
+.final-summary { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.final-score-card, .level-card, .result-section, .final-note { border: 2px solid var(--navy); border-radius: 17px; }
+.final-score-card, .level-card { min-height: 165px; padding: 20px 22px; }
+.final-score-card { background: #f1eeff; }
+.level-card { display: flex; flex-direction: column; justify-content: center; background: var(--yellow-soft); }
+.final-score { display: flex; align-items: baseline; gap: 10px; }
+.final-score > span { font-size: 4rem; line-height: 1; font-weight: 900; color: var(--violet); }
+.final-score small { font-weight: 900; letter-spacing: .06em; }
+.final-score small span { font-size: inherit; color: inherit; }
+.star-row { min-height: 38px; margin-top: 4px; color: var(--yellow); font-size: 1.9rem; letter-spacing: .1em; text-shadow: 1px 2px 0 var(--navy); }
+.level-card > strong { margin: 2px 0 6px; font-size: 1.75rem; }
+.level-card > p:last-child { margin: 0; color: var(--ink-soft); }
+.badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 18px 0 24px; }
+.badge { padding: 7px 11px; border-radius: 999px; background: #e9e5ff; color: #5043a2; font-weight: 900; font-size: .76rem; }
+.result-section { margin-top: 18px; padding: 22px; background: #fff; }
+.result-section h2 { margin: 0 0 15px; font-size: 1.45rem; }
+.challenge-results { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
+.challenge-result { min-height: 68px; padding: 10px 12px; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 10px; border-radius: 12px; background: var(--soft); }
+.result-number { width: 37px; height: 37px; display: grid; place-items: center; border-radius: 10px; background: var(--navy); color: #fff; font-size: .78rem; font-weight: 900; }
+.challenge-result div { min-width: 0; display: grid; }
+.challenge-result strong { font-size: .88rem; }
+.challenge-result small { color: var(--ink-soft); font-size: .72rem; }
+.challenge-result > b { font-size: .75rem; white-space: nowrap; }
+.result-status { grid-column: 2; color: #157a67; font-size: .72rem; font-weight: 900; }
+.skills-list { margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; list-style: none; }
+.skills-list li { padding: 10px 12px; display: flex; gap: 8px; border-radius: 10px; background: var(--soft); font-size: .88rem; }
+.skills-list li span { color: var(--teal); font-weight: 900; }
+.final-note { margin-top: 18px; display: grid; grid-template-columns: 1fr 1fr; overflow: hidden; }
+.agent-advice, .teacher-note { padding: 19px 22px; }
+.agent-advice { background: var(--yellow-soft); }
+.agent-advice p:last-child { margin: 0; }
+.teacher-note { display: grid; align-content: start; gap: 10px; background: #fff; font-size: .84rem; }
+.teacher-note span { display: block; height: 18px; border-bottom: 1px solid #a9a3b7; }
+.final-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 18px; margin-top: 28px; }
 
 .help-modal {
   width: min(610px, calc(100% - 30px));
@@ -548,12 +576,54 @@ footer { min-height: 44px; display: grid; place-items: center; background: var(-
   .rename-row { grid-template-columns: 1fr; }
   .speed-grid { grid-template-columns: 1fr; }
   .speed-arrow { transform: rotate(90deg); }
+  .final-heading, .final-summary, .student-info, .challenge-results, .skills-list, .final-note { grid-template-columns: 1fr; }
+  .final-heading { text-align: center; }
+  .final-badge { margin-inline: auto; }
+  .final-intro { margin-inline: auto; }
+  .challenge-result { grid-template-columns: auto 1fr auto; }
 }
 
+@page { size: A4 portrait; margin: 9mm; }
+
 @media print {
+  html, body { width: auto; min-width: 0; min-height: 0; background: #fff !important; color: #24213f; font-size: 9pt; line-height: 1.22; }
+  body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   .topbar, .welcome-screen, .mission-screen, footer, .final-actions, .help-modal, .toast { display: none !important; }
-  .final-screen { display: block !important; width: 100%; padding: 0; }
-  .final-card { border: 0; box-shadow: none; }
+  main { min-height: 0; }
+  .final-screen { display: block !important; width: 100%; margin: 0; padding: 0; }
+  .final-card { width: 100%; max-width: none; margin: 0; padding: 0; border: 0; border-radius: 0; box-shadow: none; }
+  .final-heading { grid-template-columns: 18mm 1fr; gap: 5mm; padding-bottom: 4mm; border-bottom: 1.5pt solid var(--navy); }
+  .final-badge { width: 16mm; height: 16mm; border-width: 1.5pt; border-radius: 5mm; box-shadow: 2mm 2mm 0 var(--navy); font-size: 18pt; }
+  .final-card h1 { font-size: 23pt; line-height: 1; }
+  .final-heading .eyebrow { margin-bottom: 1.5mm; font-size: 7pt; }
+  .final-intro { max-width: none; margin: 2mm 0 0; font-size: 8.5pt; }
+  .student-info { margin: 4mm 0 3mm; padding: 2.5mm 3mm; grid-template-columns: 2fr .8fr 1fr; gap: 4mm; border-width: 1pt; border-radius: 3mm; }
+  .student-info label { gap: .5mm; font-size: 6.5pt; }
+  .student-info input { padding: 1mm 0; border-bottom-width: 1pt; font-size: 8.5pt; }
+  .final-summary { grid-template-columns: 1fr 1fr; gap: 3mm; }
+  .final-score-card, .level-card { min-height: 27mm; padding: 3mm 4mm; border-width: 1pt; border-radius: 3mm; break-inside: avoid; }
+  .final-score > span { font-size: 27pt; }
+  .final-score small { font-size: 7pt; }
+  .star-row { min-height: 7mm; margin: 0; font-size: 14pt; text-shadow: .3mm .3mm 0 var(--navy); }
+  .level-card > strong { margin: 0 0 1mm; font-size: 14pt; }
+  .level-card > p:last-child { font-size: 8pt; }
+  .mini-label { margin-bottom: 1mm; font-size: 6.5pt; }
+  .badges { margin: 2.5mm 0 3mm; gap: 1.5mm; }
+  .badge { padding: 1mm 2mm; border: .7pt solid #c9c2f4; font-size: 6.2pt; }
+  .result-section { margin-top: 3mm; padding: 3mm; border-width: 1pt; border-radius: 3mm; break-inside: avoid; }
+  .result-section h2 { margin: 0 0 2mm; font-size: 12pt; }
+  .challenge-results { grid-template-columns: 1fr 1fr; gap: 1.5mm; }
+  .challenge-result { min-height: 12mm; padding: 1.5mm 2mm; grid-template-columns: 7mm 1fr auto; gap: 2mm; border: .5pt solid #e0dbcf; border-radius: 2mm; break-inside: avoid; }
+  .result-number { width: 7mm; height: 7mm; border-radius: 1.5mm; font-size: 6pt; }
+  .challenge-result strong { font-size: 7.3pt; }
+  .challenge-result small, .result-status, .challenge-result > b { font-size: 6.2pt; }
+  .skills-list { grid-template-columns: 1fr 1fr; gap: 1.5mm; }
+  .skills-list li { padding: 1.5mm 2mm; border: .5pt solid #e0dbcf; border-radius: 2mm; font-size: 7pt; break-inside: avoid; }
+  .final-note { margin-top: 3mm; grid-template-columns: 1fr 1fr; border-width: 1pt; border-radius: 3mm; break-inside: avoid; }
+  .agent-advice, .teacher-note { padding: 3mm; }
+  .agent-advice p:last-child, .teacher-note { font-size: 7.2pt; }
+  .teacher-note { gap: 1.5mm; }
+  .teacher-note span { height: 4mm; }
 }
 
 @media (prefers-reduced-motion: reduce) {
