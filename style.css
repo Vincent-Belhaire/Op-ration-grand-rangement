@@ -187,12 +187,13 @@ main { min-height: calc(100vh - 118px); }
 .session-meta { display: grid; color: var(--ink-soft); font-style: italic; }
 .session-meta strong { color: var(--navy); }
 
-.mission-file { position: relative; transform: rotate(1deg); padding: 24px 10px 6px; }
+.mission-file { position: relative; transform: rotate(1deg); padding: 35px 10px 6px; }
 .file-tab {
   position: absolute;
   top: 0;
   left: 8%;
   width: 52%;
+  min-width: 205px;
   padding: 6px 22px 12px;
   border: 2px solid var(--navy);
   border-radius: 18px 18px 0 0;
