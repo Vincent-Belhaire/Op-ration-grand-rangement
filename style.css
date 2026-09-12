@@ -198,9 +198,12 @@ main { min-height: calc(100vh - 118px); }
   border: 2px solid var(--navy);
   border-radius: 18px 18px 0 0;
   background: var(--yellow);
+  box-shadow: 9px 9px 0 var(--navy);
+  font-family: "Arial Rounded MT Bold", "Trebuchet MS", Arial, sans-serif;
+  font-size: 1.05rem;
   font-weight: 900;
   font-style: italic;
-  letter-spacing: .13em;
+  letter-spacing: .1em;
 }
 .file-paper {
   position: relative;
