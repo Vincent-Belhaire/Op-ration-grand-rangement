@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Séance TICE 6e interactive : copier, couper, coller, déplacer, renommer, supprimer et restaurer des fichiers.">
+  <meta name="theme-color" content="#2e2b52">
+  <title>Opération grand rangement · Mission TICE 6e</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%232e2b52'/%3E%3Cpath d='M10 20h18l5 6h21v25H10z' fill='%23ffbd32'/%3E%3Cpath d='M15 27h34v19H15z' fill='%23fffaf0'/%3E%3Cpath d='M23 36h18M23 41h12' stroke='%232e2b52' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Aller au défi</a>
+
+  <header class="topbar">
+    <button class="brand" id="homeButton" type="button" aria-label="Retour à l’accueil">
+      <span class="brand-arrow" aria-hidden="true">←</span>
+      <span>Le Bureau <b>Mystère</b></span>
+    </button>
+    <div class="topbar-actions">
+      <span class="level-pill">TICE · 6e</span>
+      <button class="help-button" id="globalHelp" type="button"><span aria-hidden="true">?</span> Aide</button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="welcome-screen" id="welcomeScreen" aria-labelledby="welcomeTitle">
+      <div class="hero-shell">
+        <div class="hero-copy">
+          <p class="eyebrow">MISSION TICE · SÉANCE 04</p>
+          <h1 id="welcomeTitle">Opération<br><span>grand rangement !</span></h1>
+          <p class="hero-lead">Pixel a retrouvé le disque de travail d’une équipe d’agents… mais les fichiers sont sens dessus dessous. À toi de remettre de l’ordre, sans rien perdre.</p>
+          <div class="hero-actions">
+            <button class="primary-button" id="startButton" type="button">Commencer la mission <span aria-hidden="true">→</span></button>
+            <div class="session-meta"><strong>55 min</strong><span>Seul ou en binôme</span></div>
+          </div>
+        </div>
+
+        <aside class="mission-file" aria-label="Dossier de mission">
+          <span class="file-tab">CONFIDENTIEL</span>
+          <div class="file-paper">
+            <div class="pixel-icon" aria-hidden="true">↯</div>
+            <p class="mini-label violet">MESSAGE DE PIXEL</p>
+            <h2>Agent, chaque fichier compte !</h2>
+            <p>Observe, choisis la bonne action et vérifie toujours le dossier de destination. Une organisation nette fait gagner un temps précieux.</p>
+            <span class="stamp">8 DÉFIS</span>
+          </div>
+        </aside>
+      </div>
+
+      <section class="mission-plan" aria-labelledby="planTitle">
+        <p class="mini-label ochre">TON PLAN DE MISSION</p>
+        <h2 id="planTitle">Une séance pour devenir maître du rangement</h2>
+        <div class="plan-grid">
+          <article class="plan-card"><span class="minute navy">05</span><div><strong>Décoder</strong><small>Copier, couper, coller</small></div></article>
+          <article class="plan-card"><span class="minute yellow">06</span><div><strong>Raccourcis</strong><small>Gagner du temps</small></div></article>
+          <article class="plan-card"><span class="minute teal">10</span><div><strong>Explorateur</strong><small>Ranger par glisser-déposer</small></div></article>
+          <article class="plan-card"><span class="minute violet-bg">07</span><div><strong>Déplacer</strong><small>Sans créer de copie</small></div></article>
+          <article class="plan-card"><span class="minute coral">08</span><div><strong>Nettoyer</strong><small>Renommer et restaurer</small></div></article>
+          <article class="plan-card"><span class="minute blue">14</span><div><strong>Finale</strong><small>Dossier catastrophe</small></div></article>
+        </div>
+      </section>
+    </section>
+
+    <section class="mission-screen" id="missionScreen" hidden aria-live="polite">
+      <div class="progress-strip" aria-label="Progression de la mission">
+        <strong id="progressLabel">Défi 1 sur 8</strong>
+        <div class="progress-track"><span id="progressBar"></span></div>
+        <strong class="score"><span aria-hidden="true">★</span> <span id="scoreValue">0</span> pts</strong>
+      </div>
+
+      <div class="challenge-wrap">
+        <div class="challenge-heading">
+          <div>
+            <p class="eyebrow" id="challengeKicker">DÉFI 01</p>
+            <h1 id="challengeTitle">Prêt ?</h1>
+          </div>
+          <button class="hint-button" id="challengeHelp" type="button">💡 Coup de pouce</button>
+        </div>
+
+        <div class="mission-brief">
+          <span class="brief-number" id="briefNumber">1</span>
+          <div><span>TA MISSION</span><p id="briefText">Lis la consigne puis relève le défi.</p></div>
+          <span class="time-chip" id="timeChip">≈ 5 min</span>
+        </div>
+
+        <section class="play-card" id="challengeContent"></section>
+
+        <div class="feedback" id="feedback" role="status">
+          <span class="feedback-icon" aria-hidden="true">i</span>
+          <p id="feedbackText">Prends le temps d’observer avant d’agir.</p>
+        </div>
+
+        <div class="mission-nav">
+          <button class="ghost-button" id="quitButton" type="button">Quitter la mission</button>
+          <button class="primary-button" id="nextButton" type="button" disabled>Défi suivant <span aria-hidden="true">→</span></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-screen" id="finalScreen" hidden aria-labelledby="finalTitle">
+      <div class="final-card">
+        <div class="final-badge" aria-hidden="true">★</div>
+        <p class="eyebrow">MISSION ACCOMPLIE</p>
+        <h1 id="finalTitle">Le dossier est sauvé !</h1>
+        <p class="final-intro">Bravo, agent. Tu sais maintenant ranger, déplacer et récupérer des fichiers sans paniquer.</p>
+        <div class="final-score"><span id="finalScore">0</span><small>POINTS</small></div>
+        <div class="star-row" id="starRow" aria-label="Étoiles obtenues"></div>
+        <h2>Compétences acquises</h2>
+        <ul class="skills-list">
+          <li>✓ Choisir entre copier, couper et coller</li>
+          <li>✓ Utiliser Ctrl+C, Ctrl+X, Ctrl+V et Suppr</li>
+          <li>✓ Ranger dans P: › Documents › TICE</li>
+          <li>✓ Renommer clairement un fichier</li>
+          <li>✓ Supprimer puis restaurer depuis la corbeille</li>
+        </ul>
+        <div class="badges" id="badges"></div>
+        <div class="final-actions">
+          <button class="primary-button" id="replayButton" type="button">Rejouer la mission ↻</button>
+          <button class="ghost-button" id="printButton" type="button">Imprimer le bilan</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>Tice - Technologie - Vincent Belhaire</footer>
+
+  <dialog class="help-modal" id="helpModal" aria-labelledby="helpTitle">
+    <button class="modal-close" id="closeHelp" type="button" aria-label="Fermer">×</button>
+    <p class="mini-label violet">CARNET D’AGENT</p>
+    <h2 id="helpTitle">Coup de pouce</h2>
+    <div id="helpContent"></div>
+    <button class="primary-button" id="gotItButton" type="button">J’ai compris</button>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="assertive"></div>
+  <script src="script.js"></script>
+</body>
+</html>
